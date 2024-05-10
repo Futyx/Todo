@@ -30,7 +30,7 @@ class TodoResource extends Resource
     {
         return $form
             ->schema([
-            TextInput::make('title'),
+            TextInput::make('title')->required(),
             DateTimePicker::make('dueDate'),
             RichEditor::make('description'),
             Select::make('priority')
@@ -38,7 +38,8 @@ class TodoResource extends Resource
                 'low' => 'Low',
                 'medium' => 'Medium',
                 'high' => 'High',
-            ])
+            ]),
+            // TextInput::make('completed')->default(false),
          ]);
     }
 
